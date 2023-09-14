@@ -5,7 +5,7 @@ void main() {
   runApp(MaterialApp(
     initialRoute: Login.id,
     theme: ThemeData(
-      scaffoldBackgroundColor: Colors.pinkAccent,
+      scaffoldBackgroundColor: Color.fromARGB(255 ,255, 236, 240),
     ),
     routes: {
       Login.id: (context) => const Login(),
