@@ -1,26 +1,46 @@
 import 'package:flutter/material.dart';
-
-import '../contants.dart';
+import 'package:kelly_girl_skills/contants.dart';
 import '../utilities/primary_button.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 
-class Login extends StatefulWidget {
-  static String id = "Login";
-
-  const Login({super.key});
+class MyLogin extends StatefulWidget {
+  const MyLogin({Key? key}) : super(key: key);
 
   @override
-  State<Login> createState() => _LoginState();
+  State<MyLogin> createState() => _MyLoginState();
 }
 
-class _LoginState extends State<Login> {
+class MyLoginState extends State<MyLogin> {
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _formKey,
       body: Center(
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              TextFormField(
+                  // The validator receives the text that the user has entered.
+                  validator: (value) {
+                if (value == null ||
+                    RegExp(r'^[\w.\-]+\@[\w\-]+(\.\w+)+$').hasMatch(value)) {}
+                return 'Please enter valid email ';
+              }),
+              TextFormField(
+                  //  validator gets the text that the user has entered.
+                  validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return "please enter password";
+                }
+                //  password validation
+                if (value.length < 8) {
+                  return "Password must be at least 8 characters long";
+                }
+                return null;
+              }),
               Container(
                 width: 260.0,
                 height: 260.0,

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:form_field_validator/form_field_validator.dart';
+
+
 
 class PrimaryButton extends StatelessWidget {
   const PrimaryButton({
+    
     super.key, required this.text, required this.width, required this.height, required this.backgroundColor,
   });
 
@@ -14,6 +18,7 @@ class PrimaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.pink,
           backgroundColor: backgroundColor,
           elevation: 0,
           shape: RoundedRectangleBorder(
@@ -21,7 +26,13 @@ class PrimaryButton extends StatelessWidget {
           ),
           minimumSize: Size(width, height)
       ),
-      onPressed: () {},
+      onPressed: () {
+        
+        if (_formKey.currentState.validate();
+    
+        
+
+      },
       child: text,
     );
   }
